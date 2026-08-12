@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 150 10% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 150 10% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 10% 15%;
+    --primary: 142 76% 36%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 138 76% 97%;
+    --secondary-foreground: 142 76% 36%;
+    --muted: 140 20% 96%;
+    --muted-foreground: 150 5% 45%;
+    --accent: 138 76% 97%;
+    --accent-foreground: 142 72% 29%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 140 20% 90%;
+    --input: 140 20% 90%;
+    --ring: 142 76% 36%;
+    --radius: 0.75rem;
+
+    /* Phyto custom tokens */
+    --phyto-50: 138 76% 97%;
+    --phyto-100: 141 84% 93%;
+    --phyto-200: 141 79% 85%;
+    --phyto-300: 142 77% 73%;
+    --phyto-400: 142 69% 58%;
+    --phyto-500: 142 71% 45%;
+    --phyto-600: 142 76% 36%;
+    --phyto-700: 142 72% 29%;
+    --phyto-800: 143 64% 24%;
+    --phyto-900: 144 61% 20%;
+    --phyto-950: 145 80% 10%;
+
+    --hero-gradient: linear-gradient(135deg, hsla(145, 80%, 10%, 0.92) 0%, hsla(142, 64%, 24%, 0.85) 50%, hsla(142, 72%, 29%, 0.78) 100%);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 142 76% 36%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 138 76% 97%;
+    --sidebar-accent-foreground: 142 72% 29%;
+    --sidebar-border: 140 20% 90%;
+    --sidebar-ring: 142 76% 36%;
+  }
+
+  .dark {
+    --background: 145 80% 5%;
+    --foreground: 138 20% 95%;
+    --card: 145 60% 8%;
+    --card-foreground: 138 20% 95%;
+    --popover: 145 60% 8%;
+    --popover-foreground: 138 20% 95%;
+    --primary: 142 69% 58%;
+    --primary-foreground: 145 80% 5%;
+    --secondary: 143 30% 15%;
+    --secondary-foreground: 138 20% 95%;
+    --muted: 143 30% 15%;
+    --muted-foreground: 140 10% 60%;
+    --accent: 143 30% 15%;
+    --accent-foreground: 138 20% 95%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 143 30% 15%;
+    --input: 143 30% 15%;
+    --ring: 142 69% 58%;
+    --sidebar-background: 145 80% 5%;
+    --sidebar-foreground: 138 20% 95%;
+    --sidebar-primary: 142 69% 58%;
+    --sidebar-primary-foreground: 145 80% 5%;
+    --sidebar-accent: 143 30% 15%;
+    --sidebar-accent-foreground: 138 20% 95%;
+    --sidebar-border: 143 30% 15%;
+    --sidebar-ring: 142 69% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    font-family: 'Inter', sans-serif;
+  }
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+  }
+  .font-playfair {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: hsl(var(--phyto-50)); }
+  ::-webkit-scrollbar-thumb { background: hsl(var(--phyto-600)); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--phyto-700)); }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes pulse-green {
+  0%, 100% { box-shadow: 0 0 0 0 hsla(142, 71%, 45%, 0.4); }
+  50% { box-shadow: 0 0 0 20px hsla(142, 71%, 45%, 0); }
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.hero-gradient { background: var(--hero-gradient); }
+.pattern-overlay {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.08) 1px, transparent 0);
+  background-size: 30px 30px;
+}
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
